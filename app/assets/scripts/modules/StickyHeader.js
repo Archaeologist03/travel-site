@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import waypoints from '../../../../node_modules/waypoints/lib/noframework.waypoints';
-import smoothScroll from "jquery-smooth-scroll";
+import smoothScroll from 'jquery-smooth-scroll';
 
 class StickyHeader {
   constructor() {
@@ -21,7 +21,7 @@ class StickyHeader {
     var that = this;
     new Waypoint({
       element: this.headerTriggerElement[0],
-      handler: function (direction) {
+      handler: function(direction) {
         if (direction == "down") {
           that.siteHeader.addClass("site-header--dark");
         } else {
@@ -32,15 +32,15 @@ class StickyHeader {
   }
 
   createPageSectionWaypoints() {
-    let self = this;
-    this.pageSections.each(function () {
-      let currentPageSection = this;
+    var that = this;
+    this.pageSections.each(function() {
+      var currentPageSection = this;
       new Waypoint({
         element: currentPageSection,
-        handler: function (direction) {
-          if (direction === "down") {
-            let matchingHeaderLink = currentPageSection.getAttribute("data-matching-link");
-            self.headerLinks.removeClass("is-current-link");
+        handler: function(direction) {
+          if (direction == "down") {
+            var matchingHeaderLink = currentPageSection.getAttribute("data-matching-link");
+            that.headerLinks.removeClass("is-current-link");
             $(matchingHeaderLink).addClass("is-current-link");
           }
         },
@@ -49,10 +49,10 @@ class StickyHeader {
 
       new Waypoint({
         element: currentPageSection,
-        handler: function (direction) {
-          if (direction === "up") {
-            let matchingHeaderLink = currentPageSection.getAttribute("data-matching-link");
-            self.headerLinks.removeClass("is-current-link");
+        handler: function(direction) {
+          if (direction == "up") {
+            var matchingHeaderLink = currentPageSection.getAttribute("data-matching-link");
+            that.headerLinks.removeClass("is-current-link");
             $(matchingHeaderLink).addClass("is-current-link");
           }
         },
